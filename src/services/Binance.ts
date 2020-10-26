@@ -70,11 +70,55 @@ class Binance {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log('Res', res);
-
         store.dispatch({
           type: 'SET_ORDERS',
           payload: res,
+        });
+      });
+  }
+
+  getAllOpenedOrders() {
+    const timestamp = Date.now();
+
+    const signature = this.stringifyParams({
+      timestamp,
+    });
+
+    const secretSignature = this.generateSecretSignature(signature);
+
+    fetch(`${this.baseApiUrl}/api/v3/openOrders?${signature}&signature=${secretSignature}`, {
+      headers: {
+        'X-MBX-APIKEY': this.apiKey,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        store.dispatch({
+          type: 'SET_ORDERS',
+          payload: res,
+        });
+      });
+  }
+
+  getBalances() {
+    const timestamp = Date.now();
+
+    const signature = this.stringifyParams({
+      timestamp,
+    });
+
+    const secretSignature = this.generateSecretSignature(signature);
+
+    fetch(`${this.baseApiUrl}/api/v3/account?${signature}&signature=${secretSignature}`, {
+      headers: {
+        'X-MBX-APIKEY': this.apiKey,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        store.dispatch({
+          type: 'SET_WALLET',
+          payload: res.balances,
         });
       });
   }

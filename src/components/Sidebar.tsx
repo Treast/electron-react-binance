@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Sidebar = () => {
   return (
@@ -13,57 +14,21 @@ export const Sidebar = () => {
           <div className='collapse navbar-collapse' id='sidenav-collapse-main'>
             <ul className='navbar-nav'>
               <li className='nav-item'>
-                <a className='nav-link active' href='examples/dashboard.html'>
+                <Link to='/' className='nav-link'>
                   <i className='ni ni-tv-2 text-primary'></i>
                   <span className='nav-link-text'>Dashboard</span>
-                </a>
+                </Link>
               </li>
               <li className='nav-item'>
-                <a className='nav-link' href='examples/icons.html'>
-                  <i className='ni ni-planet text-orange'></i>
-                  <span className='nav-link-text'>Icons</span>
-                </a>
-              </li>
-              <li className='nav-item'>
-                <a className='nav-link' href='examples/map.html'>
-                  <i className='ni ni-pin-3 text-primary'></i>
-                  <span className='nav-link-text'>Google</span>
-                </a>
-              </li>
-              <li className='nav-item'>
-                <a className='nav-link' href='examples/profile.html'>
-                  <i className='ni ni-single-02 text-yellow'></i>
-                  <span className='nav-link-text'>Profile</span>
-                </a>
-              </li>
-              <li className='nav-item'>
-                <a className='nav-link' href='examples/tables.html'>
-                  <i className='ni ni-bullet-list-67 text-default'></i>
-                  <span className='nav-link-text'>Tables</span>
-                </a>
-              </li>
-              <li className='nav-item'>
-                <a className='nav-link' href='examples/login.html'>
-                  <i className='ni ni-key-25 text-info'></i>
-                  <span className='nav-link-text'>Login</span>
-                </a>
-              </li>
-              <li className='nav-item'>
-                <a className='nav-link' href='examples/register.html'>
-                  <i className='ni ni-circle-08 text-pink'></i>
-                  <span className='nav-link-text'>Register</span>
-                </a>
-              </li>
-              <li className='nav-item'>
-                <a className='nav-link' href='examples/upgrade.html'>
-                  <i className='ni ni-send text-dark'></i>
-                  <span className='nav-link-text'>Upgrade</span>
-                </a>
+                <Link to='/wallet' className='nav-link'>
+                  <i className='ni ni-tv-2 text-primary'></i>
+                  <span className='nav-link-text'>Wallet</span>
+                </Link>
               </li>
             </ul>
             <hr className='my-3' />
             <h6 className='navbar-heading p-0 text-muted'>
-              <span className='docs-normal'>Documentation</span>
+              <span className='docs-normal'>Account</span>
             </h6>
             <ul className='navbar-nav mb-md-3'>
               <li className='nav-item'>

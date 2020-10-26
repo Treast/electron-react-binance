@@ -7,21 +7,19 @@ import { IKlineTrade } from '../store/actions/tradeActions';
 interface ICandlestickChartProps {
   symbol: string;
   interval?: string;
-  markets: any;
 }
 
-const CandlestickChart: FunctionComponent<ICandlestickChartProps> = ({ symbol, markets }) => {
-  const [trades, setTrades] = useState([] as any[]);
-
+export const CandlestickChart: FunctionComponent<ICandlestickChartProps> = ({ symbol }) => {
   useEffect(() => {
     Binance.getRecentTradeCandlestick(symbol);
     Binance.getTradeCandlestick(symbol);
   }, [symbol]);
 
-  useEffect(() => {
+  const trades = useSelector((state: any) => {
     const output: any[] = [];
-    if (markets[symbol]) {
-      markets[symbol].map((trade: IKlineTrade) => {
+
+    if (state.markets[symbol]) {
+      state.markets[symbol].map((trade: IKlineTrade) => {
         const date = new Date();
         date.setTime(trade.time);
         const hours = ('0' + date.getHours()).slice(-2);
@@ -35,8 +33,8 @@ const CandlestickChart: FunctionComponent<ICandlestickChartProps> = ({ symbol, m
       });
     }
 
-    setTrades(output);
-  }, [markets]);
+    return output;
+  });
 
   return (
     <Chart
@@ -72,11 +70,3 @@ const CandlestickChart: FunctionComponent<ICandlestickChartProps> = ({ symbol, m
     />
   );
 };
-
-const mapStateToProps = (state: any) => {
-  return {
-    markets: state.markets,
-  };
-};
-
-export default connect(mapStateToProps)(CandlestickChart);
