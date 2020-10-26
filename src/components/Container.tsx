@@ -1,4 +1,3 @@
-import { AnyTxtRecord } from 'dns';
 import React, { FunctionComponent } from 'react';
 
 interface ContainerProps {}

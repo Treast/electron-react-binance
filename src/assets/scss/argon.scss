@@ -89,3 +89,14 @@ body,
 .sidenav.fixed-left + .main-content {
   margin-left: 250px !important;
 }
+
+.chart {
+  display: flex;
+  height: 400px;
+  width: 100%;
+
+  > div {
+    height: 400px;
+    width: 100%;
+  }
+}
