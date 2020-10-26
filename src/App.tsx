@@ -14,6 +14,7 @@ import CandlestickChart from './components/CandlestickChart';
 
 import { AccountBalanceWalletOutlined, AccountBalanceOutlined } from '@material-ui/icons';
 import Binance from './services/Binance';
+import Orders from './components/Orders';
 
 const App = () => {
   useEffect(() => {
@@ -37,7 +38,7 @@ const App = () => {
         </Header>
         <Container>
           <div className='row'>
-            <div className='col-xl-8'>
+            <div className='col-xl-7'>
               <div className='card bg-default'>
                 <div className='card-header bg-transparent'>
                   <div className='row align-items-center'>
@@ -54,31 +55,14 @@ const App = () => {
                 </div>
               </div>
             </div>
-            <div className='col-xl-4'>
+            <div className='col-xl-5'>
               <div className='card'>
                 <div className='card-header'>
                   <h6 className='text-light text-uppercase ls-1 mb-1'>Overview</h6>
                   <h5 className='h3 mb-0'>Open trades</h5>
                 </div>
                 <div className='card-body'>
-                  <table className='table'>
-                    <thead className='thead-light'>
-                      <tr>
-                        <th>#</th>
-                        <th>Pair</th>
-                        <th>Price</th>
-                        <th>Amount</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>BTC/USDT</td>
-                        <td>11420.00</td>
-                        <td>0.0015</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <Orders />
                 </div>
               </div>
             </div>

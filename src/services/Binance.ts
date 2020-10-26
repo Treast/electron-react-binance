@@ -71,6 +71,11 @@ class Binance {
       .then((res) => res.json())
       .then((res) => {
         console.log('Res', res);
+
+        store.dispatch({
+          type: 'SET_ORDERS',
+          payload: res,
+        });
       });
   }
 

@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import Binance from '../services/Binance';
 import Chart from 'react-apexcharts';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { IKlineTrade } from '../store/actions/tradeActions';
 
 interface ICandlestickChartProps {
