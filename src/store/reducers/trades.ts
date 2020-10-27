@@ -1,4 +1,4 @@
-import { ADD_BULK_TRADE, ADD_TRADE, IKlineTrade, ITradeAction } from '../actions/tradeActions';
+import { ADD_BULK_TRADE, ADD_TRADE, IKlineTrade, ITradeAction, SET_BULK_TRADE } from '../actions/tradeActions';
 
 const initialState: any = {};
 
@@ -49,6 +49,26 @@ const trades = (state = initialState, action: ITradeAction) => {
       );
 
       state[action.symbol].push(...trades);
+
+      break;
+
+    case SET_BULK_TRADE:
+      if (!state[action.symbol]) {
+        state[action.symbol] = [];
+      }
+
+      const setTrades = action.payload.map((trade: any) =>
+        formatTrade({
+          close: trade[4],
+          time: trade[0],
+          symbol: action.symbol,
+          open: trade[1],
+          low: trade[3],
+          high: trade[2],
+        })
+      );
+
+      state[action.symbol] = [...setTrades];
 
       break;
   }

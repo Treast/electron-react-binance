@@ -1,7 +1,7 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import Binance from '../services/Binance';
 import Chart from 'react-apexcharts';
-import { connect, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { IKlineTrade } from '../store/actions/tradeActions';
 
 interface ICandlestickChartProps {
@@ -13,6 +13,10 @@ export const CandlestickChart: FunctionComponent<ICandlestickChartProps> = ({ sy
   useEffect(() => {
     Binance.getRecentTradeCandlestick(symbol);
     Binance.getTradeCandlestick(symbol);
+
+    return () => {
+      Binance.closeCandlestickStream(symbol);
+    };
   }, [symbol]);
 
   const trades = useSelector((state: any) => {

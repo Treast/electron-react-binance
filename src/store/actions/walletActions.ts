@@ -1,5 +1,11 @@
 export const SET_WALLET = 'SET_WALLET';
 export const SET_ORDERS = 'SET_ORDERS';
+export const UPDATE_PRICE = 'UPDATE_PRICE';
+
+export enum EAssetType {
+  SPOT = 'SPOT',
+  MARGIN = 'MARGIN',
+}
 
 export interface IWalletAction {
   type: string;
@@ -8,7 +14,11 @@ export interface IWalletAction {
 
 export interface IWalletAsset {
   symbol: string;
-  amount: number;
+  free: number;
+  locked: number;
+  total: number;
+  estimation: string;
+  type: string;
 }
 
 export interface IWalletOrder {
@@ -23,3 +33,6 @@ export interface IWallet {
   balances: IWalletAsset[];
   orders: IWalletOrder[];
 }
+
+export const getSpotBalance = (state: IWallet) => state.balances.filter((balance) => balance.type === EAssetType.SPOT);
+export const getMarginBalance = (state: IWallet) => state.balances.filter((balance) => balance.type === EAssetType.MARGIN);

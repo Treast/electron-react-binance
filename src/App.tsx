@@ -12,6 +12,7 @@ import { Home } from './pages/Home';
 import { Wallet } from './pages/Wallet';
 
 import Binance from './services/Binance';
+import CoinGecko from './services/CoinGecko';
 
 const App = () => {
   useEffect(() => {
@@ -21,8 +22,12 @@ const App = () => {
       },
     });
 
+    CoinGecko.getCoinList();
     Binance.getAllOpenedOrders();
-    Binance.getBalances();
+    Binance.getSpotBalances();
+    Binance.getMarginBalances();
+
+    console.log('App mounted !');
   }, []);
 
   return (
@@ -34,7 +39,7 @@ const App = () => {
             <Route path='/wallet'>
               <Wallet />
             </Route>
-            <Route path='/'>
+            <Route path='/' exact>
               <Home />
             </Route>
           </Switch>
