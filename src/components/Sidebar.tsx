@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const Sidebar = () => {
   return (
@@ -14,16 +14,22 @@ export const Sidebar = () => {
           <div className='collapse navbar-collapse' id='sidenav-collapse-main'>
             <ul className='navbar-nav'>
               <li className='nav-item'>
-                <Link to='/' className='nav-link'>
+                <NavLink to='/' className='nav-link' exact activeClassName='active'>
                   <i className='ni ni-tv-2 text-primary'></i>
-                  <span className='nav-link-text'>Dashboard</span>
-                </Link>
+                  <span className='nav-link-text'>Overview</span>
+                </NavLink>
               </li>
               <li className='nav-item'>
-                <Link to='/wallet' className='nav-link'>
+                <NavLink to='/margin' className='nav-link' exact activeClassName='active'>
                   <i className='ni ni-tv-2 text-primary'></i>
-                  <span className='nav-link-text'>Wallet</span>
-                </Link>
+                  <span className='nav-link-text'>Margin</span>
+                </NavLink>
+              </li>
+              <li className='nav-item'>
+                <NavLink to='/masternodes' className='nav-link' exact activeClassName='active'>
+                  <i className='ni ni-tv-2 text-primary'></i>
+                  <span className='nav-link-text'>Masternodes</span>
+                </NavLink>
               </li>
             </ul>
             <hr className='my-3' />
@@ -32,54 +38,16 @@ export const Sidebar = () => {
             </h6>
             <ul className='navbar-nav mb-md-3'>
               <li className='nav-item'>
-                <a
-                  className='nav-link'
-                  href='https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  <i className='ni ni-spaceship'></i>
-                  <span className='nav-link-text'>Getting started</span>
-                </a>
+                <NavLink to='/wallet' className='nav-link' exact activeClassName='active'>
+                  <i className='ni ni-tv-2 text-primary'></i>
+                  <span className='nav-link-text'>Wallet</span>
+                </NavLink>
               </li>
               <li className='nav-item'>
-                <a
-                  className='nav-link'
-                  href='https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  <i className='ni ni-palette'></i>
-                  <span className='nav-link-text'>Foundation</span>
-                </a>
-              </li>
-              <li className='nav-item'>
-                <a
-                  className='nav-link'
-                  href='https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  <i className='ni ni-ui-04'></i>
-                  <span className='nav-link-text'>Components</span>
-                </a>
-              </li>
-              <li className='nav-item'>
-                <a
-                  className='nav-link'
-                  href='https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  <i className='ni ni-chart-pie-35'></i>
-                  <span className='nav-link-text'>Plugins</span>
-                </a>
-              </li>
-              <li className='nav-item'>
-                <a className='nav-link active active-pro' href='examples/upgrade.html'>
-                  <i className='ni ni-send text-dark'></i>
-                  <span className='nav-link-text'>Upgrade to PRO</span>
-                </a>
+                <NavLink to='/settings' className='nav-link' exact activeClassName='active'>
+                  <i className='ni ni-tv-2 text-primary'></i>
+                  <span className='nav-link-text'>Settings</span>
+                </NavLink>
               </li>
             </ul>
           </div>

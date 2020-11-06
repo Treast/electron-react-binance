@@ -77,7 +77,7 @@ const trades = (state = initialState, action: ITradeAction) => {
     state[action.symbol] = state[action.symbol].filter((entry: any) => entry.time > Date.now() - 60 * 60 * 1000);
   }
 
-  return Object.assign({}, state);
+  return { ...state };
 };
 
 export default trades;

@@ -2,10 +2,12 @@ import { createStore, combineReducers } from 'redux';
 
 import trades from './reducers/trades';
 import wallet from './reducers/wallet';
+import masternodes from './reducers/masternodes';
 
 const reducers = combineReducers({
   markets: trades,
   wallet: wallet,
+  masternodes: masternodes,
 });
 
 // @ts-ignore

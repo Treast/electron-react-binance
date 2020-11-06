@@ -8,7 +8,8 @@ const initialState: IWallet = {
 
 const CURRENCY_ESTIMATION = 'EUR';
 
-const formatAmount = (amount: number | string, decimals: number = 8) => {
+export const formatAmount = (amount: number | string, decimals: number = 8) => {
+  if (amount === null) amount = 0;
   const float = parseFloat(amount.toString());
   return Math.round((float + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
 };

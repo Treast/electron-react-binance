@@ -1,4 +1,3 @@
-import { copyFile } from 'fs';
 import { EAssetType, UPDATE_PRICE } from '../store/actions/walletActions';
 import { store } from '../store/store';
 
@@ -31,6 +30,7 @@ class CoinGecko {
       const coin = this.coins.find((coin) => coin.symbol === symbol.toLocaleLowerCase());
 
       if (coin) {
+        console.log(coin);
         fetch(`${this.baseApiUrl}/simple/price?ids=${coin.id}&vs_currencies=eur`)
           .then((res) => res.json())
           .then((res) => {

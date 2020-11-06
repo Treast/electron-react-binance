@@ -10,6 +10,7 @@ import { Sidebar } from './components/Sidebar';
 
 import { Home } from './pages/Home';
 import { Wallet } from './pages/Wallet';
+import { Masternodes } from './pages/Masternodes';
 
 import Binance from './services/Binance';
 import CoinGecko from './services/CoinGecko';
@@ -38,6 +39,9 @@ const App = () => {
           <Switch>
             <Route path='/wallet'>
               <Wallet />
+            </Route>
+            <Route path='/masternodes'>
+              <Masternodes />
             </Route>
             <Route path='/' exact>
               <Home />
